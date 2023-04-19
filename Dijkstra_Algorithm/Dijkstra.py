@@ -1,8 +1,6 @@
 from queue import PriorityQueue
 import matplotlib.pyplot as plt
 import matplotlib.patches as patch
-from matplotlib.patches import Polygon
-import numpy as np
 
 #Obstacle definition
 def arrow_obstacle1(coordinates): #breaking the first obstacle into two parts

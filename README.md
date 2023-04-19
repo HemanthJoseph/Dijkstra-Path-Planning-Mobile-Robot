@@ -42,6 +42,10 @@ python Dijkstra.py
 ```
 * In the command line enter the inputs values for start and goal coordinates and ensure that the points don't fall in the obstacles as the program will keep prompting you to enter points that aren't in the obstacle space.
 
+## Dependencies and libraries
+1. Python 3
+2. Matplotlib
+3. Queue
 
 ## Video Link
 https://drive.google.com/file/d/1XJp1R0PteTrX_R4la_C7ffUnGrDoOqul/view?usp=share_link
