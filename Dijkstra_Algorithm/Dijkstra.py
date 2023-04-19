@@ -1,5 +1,7 @@
 from queue import PriorityQueue
 import matplotlib.pyplot as plt
+import matplotlib.patches as patch
+from matplotlib.patches import Polygon
 import numpy as np
 
 #Obstacle definition
@@ -210,36 +212,61 @@ for i in range(len(shortest_path)):
     c.append(shortest_path[i][0])
     d.append(shortest_path[i][1])
 
+#printing the map
 plt.ylabel('Y')
 plt.xlabel('X')
 plt.axis([0 , 400 , 0 ,250])
+start_point = patch.Circle(input_start_coordinates, radius=2, color='m')
+goal_point = patch.Circle(input_goal_coordinates, radius=2, color='m')
 
 
+
+
+#printing the obstacles
+# obs_patch1 = np.array([[36, 185], [105, 100], [80, 180], [115, 210]])
+obs_patch1 = patch.Polygon(([36, 185], [105, 100], [80, 180], [115, 210]), color = 'r')
+obs_patch2 = patch.RegularPolygon((200, 100), 6, radius = 40.415, color='g')
+obs_patch3 = patch.Circle((300, 185), radius=40, color='b')
+# p = Polygon(obs_patch1, closed=False, color='r')
+ax = plt.gca()
+ax.add_patch(obs_patch1)
+ax.add_patch(obs_patch2)
+ax.add_patch(obs_patch3)
+ax.add_patch(start_point)
+ax.add_patch(goal_point)
+plt.savefig('Map1.png')
+# plt.show
+
+
+#printing the map exploration
 temp_x = 0
 temp_y = 0
 plt.title("Plotting Visited list")
 for i in range(len(a)) :
+    ax.add_patch(start_point)
+    ax.add_patch(goal_point)
     if temp_x == goal_coordinates[0] and temp_y == goal_coordinates[1] :
         break
     if len(a)>100:
-        plt.scatter(a[0:100] , b[0:100] , c='blue' , s=1)
+        plt.scatter(a[0:100] , b[0:100] , c='mediumturquoise' , s=1)
         plt.pause(0.0005)
         del a[:100]
         del b[:100]
     else :
         for j in range(len(a)):
-            plt.scatter(a[j] , b[j] , c='blue' , s=1)
+            plt.scatter(a[j] , b[j] , c='mediumturquoise' , s=1)
             plt.pause(0.0005)
             temp_x = a[j]
             temp_y = b[j]
             if a[j] == goal_coordinates[0] and b[j] == goal_coordinates[1] :
                 break
+plt.savefig('Map2.png')
 
-
-
+#printing the travelled path
 plt.title("Travelling on the Shortest Path")
 for i in range(len(c)):
     plt.scatter(c[i] , d[i] , c='yellow' , s=2, marker='D')
     plt.pause(0.00005)
-
+plt.pause(3)
+plt.savefig('Map3.png')
 plt.show
