@@ -28,9 +28,20 @@ After we explore the entire map, we use backtracking to find the path with the l
 ![Shortest Path Map](./images/Shortest_Path_Map.png)
 
 ## Usage
-Clone the repo to your local machine
+* Clone the repo to your local machine
 ```
-git clone
+git clone https://github.com/HemanthJoseph/Dijkstra-Path-Planning-Point-Robot.git
 ```
+* Change Directory
+```
+cd Dijkstra_Algorithm
+```
+* Run the python file
+```
+python Dijkstra.py
+```
+* In the command line enter the inputs values for start and goal coordinates and ensure that the points don't fall in the obstacles as the program will keep prompting you to enter points that aren't in the obstacle space.
 
-[Video Output](images/Video_Output.mp4)
+
+## Video Link
+https://drive.google.com/file/d/1XJp1R0PteTrX_R4la_C7ffUnGrDoOqul/view?usp=share_link
